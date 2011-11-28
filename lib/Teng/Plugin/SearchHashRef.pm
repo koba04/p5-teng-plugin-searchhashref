@@ -10,7 +10,6 @@ sub search_hashref {
     my ($self, $table_name, $where, $opt, $key) = @_;
 
     $key = 'id' unless defined $key;
-
     return { map { $_->$key => $_ } $self->search($table_name, $where, $opt)->all };
 }
 
