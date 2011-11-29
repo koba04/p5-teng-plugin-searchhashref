@@ -18,15 +18,21 @@ __END__
 
 =head1 NAME
 
-Teng::Plugin::SearchHashRef -
+Teng::Plugin::SearchHashRef - like a DBI's selectall_hashref
 
 =head1 SYNOPSIS
 
-  use Teng::Plugin::SearchHashRef;
+  package Your::DB;
+  use parent 'Teng';
+  __PACKAGE__->load_plugin('SearchHashRef');
+
+  my $hash_ref = $db->search_hashref($table, { name => 'hoge' });
+    or
+  my $hash_ref = $db->search_hashref($table, { name => 'hoge' }, 'uniq_key');
 
 =head1 DESCRIPTION
 
-Teng::Plugin::SearchHashRef is
+Teng::Plugin::SearchHashRef is Teng Plugin of like a DBI's selectall_hashref
 
 =head1 AUTHOR
 
